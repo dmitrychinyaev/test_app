@@ -1,6 +1,8 @@
 package ru.authorizationapp.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -10,41 +12,23 @@ public class User {
     private String email;
     private Date dateCreated;
 
-    private AtomicInteger rating;
+    private List<Quote> quoteList = new ArrayList<>();
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Date getDateCreated() {
         return dateCreated;
     }
-
-
-    public AtomicInteger getRating() {
-        return rating;
-    }
-
 
     public User(String name, String password){
         this.name = name;
@@ -56,7 +40,6 @@ public class User {
         this.password = password;
         this.email = email;
         this.dateCreated = new Date();
-        this.rating = new AtomicInteger(0);
     }
 
     @Override
@@ -65,6 +48,12 @@ public class User {
                 "name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", dateCreated=" + dateCreated;
+    }
+
+    public Quote makeQuote(String text){
+        Quote quote = new Quote(text, getName());
+        quoteList.add(quote);
+        return quote;
     }
 
 }

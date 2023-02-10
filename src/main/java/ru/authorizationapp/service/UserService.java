@@ -18,10 +18,6 @@ public class UserService {
         return repository.all();
     }
 
-    public User getById(User id) {
-        return repository.getById(id);
-    }
-
     public User save(User user) {
         return repository.save(user);
     }

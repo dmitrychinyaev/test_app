@@ -7,8 +7,7 @@ import ru.authorizationapp.service.UserService;
 import java.util.List;
 
 @RestController
-//TODO
-@RequestMapping("/api")
+@RequestMapping("/")
 public class UserController {
     private final UserService service;
 
@@ -19,11 +18,6 @@ public class UserController {
     @GetMapping
     public List<User> all() {
         return service.all();
-    }
-
-    @GetMapping("/getId")
-    public User getById(@RequestBody User user) {
-        return service.getById(user);
     }
 
     @PostMapping
