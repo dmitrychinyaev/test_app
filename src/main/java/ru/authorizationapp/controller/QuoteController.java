@@ -1,5 +1,6 @@
 package ru.authorizationapp.controller;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.authorizationapp.model.Quote;
 import ru.authorizationapp.model.User;
@@ -21,7 +22,7 @@ public class QuoteController {
     }
 
     @PostMapping
-    public Quote saveQuote(@RequestBody User user, String text){
+    public Quote saveQuote(@RequestBody @Validated User user, String text){
         return service.saveQuote(user, text);
     }
 

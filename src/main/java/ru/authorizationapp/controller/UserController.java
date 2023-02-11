@@ -1,5 +1,6 @@
 package ru.authorizationapp.controller;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.authorizationapp.model.User;
 import ru.authorizationapp.service.UserService;
@@ -21,12 +22,12 @@ public class UserController {
     }
 
     @PostMapping
-    public User save(@RequestBody User user) {
+    public User save(@RequestBody @Validated User user) {
         return service.save(user);
     }
 
     @DeleteMapping
-    public void removeById(@RequestBody User id) {
+    public void removeById(@RequestBody @Validated User id) {
         service.removeById(id);
     }
 }

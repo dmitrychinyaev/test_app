@@ -1,9 +1,14 @@
 package ru.authorizationapp.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Quote {
+    @NotBlank
+    @Size(min = 2, max = 150)
     private String quote;
     private Date dateOfCreation;
 
