@@ -31,12 +31,12 @@ public class QuoteController {
         return service.randomQuote();
     }
 
-    @GetMapping("/upvote{id}")
+    @GetMapping("/upvote/{id}")
     public void upvoteQuote(@PathVariable int id){
         service.upvoteQuote(id);
     }
 
-    @GetMapping("/downvote{id}")
+    @GetMapping("/downvote/{id}")
     public void downvoteQuote(@PathVariable int id){
         service.downvoteQuote(id);
     }

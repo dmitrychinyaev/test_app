@@ -10,13 +10,13 @@ public class Quote {
     @NotBlank
     @Size(min = 2, max = 150)
     private String quote;
-    private Date dateOfCreation;
+    private final Date dateOfCreation;
 
     private Date dateOfUpdate;
 
-    private String username;
+    private final String username;
 
-    private AtomicInteger rating;
+    private final AtomicInteger rating;
 
     public void setQuote(String quote) {
         this.quote = quote;
